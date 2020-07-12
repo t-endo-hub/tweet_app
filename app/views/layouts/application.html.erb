@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TweetApp</title>
+	<%= csrf_meta_tags %>
+	<%= csp_meta_tag %>
+
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+	<header>
+		<nav class="header-content">
+		<% if user_signed_in? %>
+			<li class="header-left">
+				<%= link_to "TWEET", homes_top_path %>
+			</li>
+			<li class="header-right">
+				<%= link_to "ユーザー詳細", edit_user_registration_path %>
+				<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+			</li>
+		<% else %>
+			<li class="header-left">
+				<%= link_to "TWEET", homes_top_path %>
+			</li>
+			<li class="header-right">
+				<%= link_to "新規登録", new_user_registration_path %>
+				<%= link_to "ログイン", new_user_session_path %>
+			</li>
+		<% end %>
+		</nav>
+	</header><!-- /header -->
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+	<%= yield %>
+</body>
+</html>
