@@ -1,0 +1,9 @@
+<h1>Posts#new</h1>
+<p>Find me in app/views/posts/new.html.erb</p>
+<%= form_for @post do |f| %>
+	<%= f.label :titale, "Titale" %>
+	<%= f.text_field :title %>
+	<%= f.label :body, "Body" %>
+	<%= f.text_area :body %>
+	<%= f.submit "投稿", :disable_with => '投稿ing...' %>
+<% end %>
