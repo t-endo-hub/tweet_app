@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-	root 'homes#top'
+	root 'posts#index'
 	get 'homes/top'
 	devise_for :users
 	resources :users

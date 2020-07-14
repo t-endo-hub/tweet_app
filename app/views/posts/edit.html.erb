@@ -1,6 +1,8 @@
 <h1>Posts#edit</h1>
 <p>Find me in app/views/posts/edit.html.erb</p>
+<%= render 'layouts/error_messages', model: @post %>
 <%= form_for @post do |f| %>
+	<%= f.attachment_field :image %>
 	<%= f.label :title, "title" %><br>
 	<%= f.text_field :title %><br>
 	<%= f.label :body, "body" %><br>

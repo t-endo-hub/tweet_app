@@ -13,22 +13,70 @@
  *= require_tree .
  *= require_self
  */
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
 }
- header {
- 	background-color: grey;
- }
+
+body {
+  font-size: 2rem;
+  width: 800px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template:
+      "header-left header header-right"
+      "left   center right"
+      "footer footer footer";
+}
+
+header {
+  width: 100%;
+  background-color: grey;
+  grid-area: header;
+}
 .header-content {
- 	display: flex;
- 	list-style: none;
+  list-style: none;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .header-left {
-	margin: 10px auto 10px 0;
+  grid-area: header-left;
+  
 }
 .header-right {
+  float: right;
+  grid-area: header-right;
 	line-height: 50px;
+}
+
+main {
+  grid-area: center;
+}
+
+footer {
+  grid-area: footer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#error_explanation {
+    color:#262626;
+    background:#FFEBE8;
+    text-align: center;
+    border:2px solid #990000;
+    padding:12px; font-weight:850;
 }

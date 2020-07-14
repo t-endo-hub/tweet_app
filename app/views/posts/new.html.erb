@@ -1,6 +1,7 @@
 <h1>Posts#new</h1>
 <p>Find me in app/views/posts/new.html.erb</p>
 <%= form_for @post do |f| %>
+	<%= f.attachment_field :image %>
 	<%= f.label :titale, "Titale" %>
 	<%= f.text_field :title %>
 	<%= f.label :body, "Body" %>

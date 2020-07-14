@@ -2,8 +2,15 @@
 <p>Find me in app/views/posts/index.html.erb</p>
 
 <% @posts.each do |post| %>
-	<h1>title</h1><%= post.title %><br>
-	<h1>body</h1><%= post.body %><br>
-	<%= link_to "show", post_path(post) %><br>
-	<%= link_to "edit", edit_post_path(post) %><br>
+<div>
+	<%= attachment_image_tag post, :image, style: 'max-height: 300px; width: 50%; object-fit: cover' %>
+</div>
+<%= link_to user_path(post.user_id) do %>
+<%= post.user.name %><br>
+<% end %>
+
+<%= link_to post_path(post) do %>
+<%= post.title %><br>
+<%= post.body %><br>
+<% end %>
 <% end %>
