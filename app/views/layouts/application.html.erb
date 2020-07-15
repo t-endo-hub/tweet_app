@@ -28,7 +28,7 @@
 							<%= link_to "マイページ", user_path(current_user) %>
 						</div>
 						<div>
-							<%= link_to "ログアウト", destroy_user_session_path %>
+							<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 						</div>
 					</div><!-- /.dropdown-menu -->
 				</div><!-- /.dropdown -->

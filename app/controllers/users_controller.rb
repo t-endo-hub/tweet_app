@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@posts = Post.where(user_id: @user.id)
 	end
 
 	def edit
@@ -23,13 +24,23 @@ class UsersController < ApplicationController
 	def destroy
 		user = User.find(params[:id])
 		if user.delete
-		   redirect_to users_path
+			redirect_to users_path
 		end
 	end
 
+	def search
+		if params[:name].present?
+			@users = User.where('name LIKE ?', "%#{params[:name]}%")
+		else
+			@users = User.none
+		end
+	end
+
+
+end
+
 private
 
-	def user_params
-		params.require(:user).permit(:name, :email)
-	end
+def user_params
+	params.require(:user).permit(:name, :email)
 end

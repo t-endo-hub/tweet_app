@@ -1,8 +1,21 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
 <%= @user.name %><br />
 <%= @user.email %>
-
+<%= @posts.each do |post| %>
+<div class="post">
+	<div class="post-content">
+		<div class="pic">
+			<%= attachment_image_tag post, :image %>
+		</div>
+		<%= link_to post_path(post) do %>
+		<div class="title">
+			<%= post.title %><br>
+		</div>
+		<div class="body">
+			<%= post.body %><br>
+		</div>
+		<% end %>
+	</div>
+</div>
+<% end %>
 <%= link_to 'edit', edit_user_path(@user) %>
 <%= link_to 'destroy', user_path(@user), method: :delete %>

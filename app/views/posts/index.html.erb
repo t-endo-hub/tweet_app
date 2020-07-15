@@ -1,4 +1,4 @@
-	<% @posts.each do |post| %>
+	<%= @posts.each do |post| %>
 	<div class="post">
 		<div class="user-name">
 			<%= link_to user_path(post.user_id) do %>
@@ -7,16 +7,15 @@
 		</div>
 		<div class="post-content">
 			<div class="pic">
-			<%= attachment_image_tag post, :image %>
+				<%= attachment_image_tag post, :image %>
 			</div>
 			<%= link_to post_path(post) do %>
 			<div class="title">
-			<%= post.title %><br>
+				<%= post.title %><br>
 			</div>
 			<div class="body">
 				<%= post.body %><br>
 			</div>
-			
 			<% end %>
 		</div>
 	</div>
