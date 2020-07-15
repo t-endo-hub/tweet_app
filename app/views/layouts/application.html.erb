@@ -10,49 +10,53 @@
 </head>
 
 <body>
-	<header class="sample01">
-		<% if user_signed_in? %>
-		<li class="header-left">
-			<%= link_to "TWEET", posts_path %>
-		</li>
-		<div class="header-right">
-			<div class="dropdown">
-				<!-- 切替ボタンの設定 -->
-				<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<%= current_user.name %>
-				</a>
-				<!-- ドロップメニューの設定 -->
-				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-					<div>
-						<%= link_to "マイページ", user_path(current_user) %>
-					</div>
-					<div>
-						<%= link_to "ログアウト", destroy_user_session_path %>
-					</div>
-				</div><!-- /.dropdown-menu -->
-			</div><!-- /.dropdown -->
-			<%= link_to "投稿する", new_post_path, class: 'btn btn-success' %>
-		</div>
-		
-
-		<% else %>
-		<ul>
+	<header>
+		<div class="content clearfix">
+			<% if user_signed_in? %>
 			<li class="header-left">
-				<%= link_to "TWEET", homes_top_path %>
+				<%= link_to "TWEET", posts_path %>
 			</li>
-			<li class="header-right">
-				<%= link_to "新規登録", new_user_registration_path, class: 'btn btn-success' %>
-				<%= link_to "ログイン", new_user_session_path , class: 'btn btn-default'%>
-			</li>
-		</ul>
-		<% end %>
+			<div class="header-right">
+				<div class="dropdown">
+					<!-- 切替ボタンの設定 -->
+					<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<%= current_user.name %>
+					</a>
+					<!-- ドロップメニューの設定 -->
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<div>
+							<%= link_to "マイページ", user_path(current_user) %>
+						</div>
+						<div>
+							<%= link_to "ログアウト", destroy_user_session_path %>
+						</div>
+					</div><!-- /.dropdown-menu -->
+				</div><!-- /.dropdown -->
+				<div class="new">
+					<%= link_to "投稿する", new_post_path, class: 'btn btn-success' %>
+				</div>
+			</div>
+			<% else %>
+			<ul>
+				<li class="header-left">
+					<%= link_to "TWEET", homes_top_path %>
+				</li>
+				<li class="header-right">
+					<%= link_to "新規登録", new_user_registration_path, class: 'btn btn-success' %>
+					<%= link_to "ログイン", new_user_session_path , class: 'btn btn-default'%>
+				</li>
+			</ul>
+			<% end %>
+		</div>
 	</header><!-- /header -->
-	<% if notice %>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-	<% end %>
 	<main>
-		<%= yield %>
+		<div class="body-content">
+			<% if notice %>
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+			<% end %>
+			<%= yield %>
+		</div>
 	</main>
 	<footer>
 		

@@ -1,16 +1,23 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
-
-<% @posts.each do |post| %>
-<div>
-	<%= attachment_image_tag post, :image, style: 'max-height: 300px; width: 50%; object-fit: cover' %>
-</div>
-<%= link_to user_path(post.user_id) do %>
-<%= post.user.name %><br>
-<% end %>
-
-<%= link_to post_path(post) do %>
-<%= post.title %><br>
-<%= post.body %><br>
-<% end %>
-<% end %>
+	<% @posts.each do |post| %>
+	<div class="post">
+		<div class="user-name">
+			<%= link_to user_path(post.user_id) do %>
+			<%= post.user.name %><br>
+			<% end %>
+		</div>
+		<div class="post-content">
+			<div class="pic">
+			<%= attachment_image_tag post, :image %>
+			</div>
+			<%= link_to post_path(post) do %>
+			<div class="title">
+			<%= post.title %><br>
+			</div>
+			<div class="body">
+				<%= post.body %><br>
+			</div>
+			
+			<% end %>
+		</div>
+	</div>
+	<% end %>

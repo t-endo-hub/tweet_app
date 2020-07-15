@@ -21,57 +21,63 @@
    box-sizing: border-box;
 }
 
-body {
-  font-size: 2rem;
-  width: 800px;
-  margin: 0 auto;
-  min-height: 100vh;
-  display: grid;
-  grid-template:
-      "header-left header header-right"
-      "left   center right"
-      "footer footer footer";
-}
 
 header {
-  width: 100%;
   background-color: grey;
-  grid-area: header;
+  margin: 0 auto;
 }
-.header-content {
+.content {
   list-style: none;
   width: 80%;
   margin: 0 auto;
 }
 
 .header-left {
-  grid-area: header-left;
-  
+  float: left;
 }
 .header-right {
   float: right;
-  grid-area: header-right;
 	line-height: 50px;
+  display: flex;
 }
-
 main {
-  grid-area: center;
+  background-color:silver;
+  padding: 10px 0 10px 0;
+}
+.body-content {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+img {
+  width: 80%;
+  height: 300px;
+  object-fit: cover;
+
+}
+.post {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+}
+.user-name {
+  text-align: left;
+}
+.body {
+  width: 80%;
+  text-align: left;
+  margin: 0 auto;
+  word-break: break-all;
 }
 
-footer {
-  grid-area: footer;
+
+
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 #error_explanation {
     color:#262626;
