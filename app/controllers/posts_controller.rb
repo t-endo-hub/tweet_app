@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+	before_action :authenticate_user!
+
 	def index
 		@posts = Post.all
 	end
@@ -43,7 +45,7 @@ class PostsController < ApplicationController
 
 	def destroy
 		post = Post.find(params[:id])
-		if post.delete
+		if post.destroy
 			redirect_to posts_path
 		end
 	end

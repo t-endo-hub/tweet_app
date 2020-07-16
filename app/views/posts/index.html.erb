@@ -1,21 +1,15 @@
-	<%= @posts.each do |post| %>
-	<div class="post">
-		<div class="user-name">
+	<div class="row">
+		<% @posts.each do |post| %>
+		<div class="post">
+
 			<%= link_to user_path(post.user_id) do %>
 			<%= post.user.name %><br>
 			<% end %>
-		</div>
-		<div class="post-content">
-			<div class="pic">
-				<%= attachment_image_tag post, :image %>
-			</div>
+			<%= attachment_image_tag post, :image, class: 'img-responsive center-block img' %>
 			<%= link_to post_path(post) do %>
-			<div class="title">
-				<%= post.title %><br>
-			</div>
-			<div class="body">
-				<%= post.body %><br>
-			</div>
+			<%= post.title %><br>
+			<%= post.body %><br>
+			<% end %>
 			<% if current_user.already_liked?(post) %>
 
 			<%= link_to post_likes_path(post), method: :delete do %>
@@ -26,11 +20,10 @@
 
 			<%= link_to post_likes_path(post), method: :post do %>
 			<i class="fa fa-heart" aria-hidden="true" style="color: grey;"></i>
-			<% end %>
 
 			<% end %>
 			<% end %>
+
 		</div>
+		<% end %>
 	</div>
-
-	<% end %>

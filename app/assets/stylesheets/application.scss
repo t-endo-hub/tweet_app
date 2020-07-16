@@ -20,40 +20,20 @@
    padding: 0;
    box-sizing: border-box;
 }
-
+body {
+  background-color: gray;
+}
 
 header {
-  background-color: grey;
-  margin: 0 auto;
-}
-.content {
-  list-style: none;
-  width: 80%;
-  margin: 0 auto;
+  padding-top:10px;
+  padding-bottom: 10px;
+  background-color: white;
 }
 
-.header-left {
-  float: left;
-}
-.header-right {
-  float: right;
-	line-height: 50px;
-  display: flex;
-}
-main {
-  background-color:silver;
-  padding: 10px 0 10px 0;
-}
-.body-content {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
-}
-img {
-  width: 80%;
-  height: 300px;
+.img {
+  max-width: 660px;
+  max-height: 660px;
   object-fit: cover;
-
 }
 .post {
   margin-top: 10px;
@@ -69,7 +49,11 @@ img {
   margin: 0 auto;
   word-break: break-all;
 }
-
+.profile-img{
+  width:150px;
+  height: 150px;
+  object-fit: cover;
+}
 
 
 

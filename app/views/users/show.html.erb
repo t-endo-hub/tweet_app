@@ -1,21 +1,20 @@
-<%= @user.name %><br />
-<%= @user.email %>
-<%= @posts.each do |post| %>
-<div class="post">
-	<div class="post-content">
-		<div class="pic">
-			<%= attachment_image_tag post, :image %>
-		</div>
+<div class="row">
+	<div class="col-12 clearfix">
+		<%= attachment_image_tag @user, :profile_image, class: 'img-circle pull-left profile-img'%>
+		<%= @user.name %><br />
+		<%= @user.email %>
+	</div>
+		<% @posts.each do |post| %>
+	<div class="row">
+		<%= attachment_image_tag post, :image, class: 'img-responsive center-block img'  %>
+	</div>
+	<div class="row">
 		<%= link_to post_path(post) do %>
-		<div class="title">
-			<%= post.title %><br>
-		</div>
-		<div class="body">
-			<%= post.body %><br>
-		</div>
+		<%= post.title %><br>
+		<%= post.body %><br>
 		<% end %>
+		<% end %>
+		<%= link_to 'edit', edit_user_path(@user) %>
+		<%= link_to 'destroy', user_path(@user), method: :delete %>
 	</div>
 </div>
-<% end %>
-<%= link_to 'edit', edit_user_path(@user) %>
-<%= link_to 'destroy', user_path(@user), method: :delete %>
