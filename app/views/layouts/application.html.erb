@@ -19,8 +19,14 @@
 					<li class="btn btn-success">
 						<%= link_to "TWEET", posts_path %>
 					</li>
+						<%= form_with url: users_search_path, method: :get, local: true do |f| %>
+						<%= f.text_field :name %>
+						<%= f.submit :search %>
+						<% end %>
 				</div>
 				<div class="col-md-10 text-right">
+
+
 
 					<%= link_to "マイページ", user_path(current_user), class: 'btn btn-success' %>
 					<%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-success' %>
