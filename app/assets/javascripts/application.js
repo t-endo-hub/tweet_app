@@ -14,4 +14,7 @@
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
-//= require_tree .
+//= require_tree
+var str1 = 'Hello';
+var str2 = 'World!!';
+alert(str1 + str2);
