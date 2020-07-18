@@ -10,11 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree
-var str1 = 'Hello';
-var str2 = 'World!!';
-alert(str1 + str2);
+
+$(document).ready(function () {
+  $('.jquery').on('click', function(){
+    $(this).css('color','red');
+  });
+});

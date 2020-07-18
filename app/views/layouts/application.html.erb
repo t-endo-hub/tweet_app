@@ -11,6 +11,7 @@
 </head>
 
 <body>
+	<h1 class="jquery">Hello jQuery!</h1>
 	<header>
 		<div class="container">
 			<div class="row">
@@ -19,10 +20,10 @@
 					<li class="btn btn-success">
 						<%= link_to "TWEET", posts_path %>
 					</li>
-						<%= form_with url: users_search_path, method: :get, local: true do |f| %>
-						<%= f.text_field :name %>
-						<%= f.submit :search %>
-						<% end %>
+					<%= form_with url: users_search_path, method: :get, local: true do |f| %>
+					<%= f.text_field :name %>
+					<%= f.submit :search %>
+					<% end %>
 				</div>
 				<div class="col-md-10 text-right">
 
